@@ -75,5 +75,5 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": []
 }

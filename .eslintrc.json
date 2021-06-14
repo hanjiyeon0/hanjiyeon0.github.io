@@ -1,14 +1,15 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
   "extends": [
-    "eslint:recommend",
-    "plugin:@typescript-eslint/eslint-recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:prettier/recommended"
+    "eslint-config-prettier",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -16,10 +17,26 @@
       "jsx": true
     },
     "ecmaVersion": 12,
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "ignorePatterns": ["dist/", "node_modules/"],
-  "rules": {}
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["warn", "double"],
+    "max-lines": ["warn", 300],
+    "arrow-body-style": ["warn", "as-needed"],
+    "semi": ["error", "always"],
+    "eqeqeq": "error",
+    "react/jsx-no-target-blank": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      { "varsIgnorePattern": "\\\\*Saga" }
+    ]
+  },
+  "ignorePatterns": "ChannelService.js",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
 }
