@@ -22,12 +22,12 @@
   "plugins": ["react", "@typescript-eslint"],
   "ignorePatterns": ["dist/", "node_modules/"],
   "rules": {
-		"indent": ["error", 2, { "offsetTernaryExpressions": true }],
+    "indent": ["error", 2, { "offsetTernaryExpressions": true }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "eqeqeq": "warn",
     "max-lines": ["warn", 200],
-    "arrow-body-style": ["warn", "as-needed"],
-	}
+    "arrow-body-style": ["warn", "as-needed"]
+  }
 }
