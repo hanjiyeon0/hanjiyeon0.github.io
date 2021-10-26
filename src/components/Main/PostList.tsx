@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import PostItem from "./PostItem";
+import media from "components/Common/media";
 
 const POST_ITEM_DATA = {
   title: "Post Item Title",
@@ -29,6 +30,12 @@ const PostListWrapper = styled.div`
   width: 768px;
   margin: 0 auto;
   padding: 50px 0 100px;
+
+  ${media.mobile} {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 50px 20px;
+  }
 `;
 
 export default PostList;

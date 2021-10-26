@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
+import media from "../Common/media";
 
 type CategoryItemProps = {
   active: boolean;
@@ -19,11 +20,29 @@ export interface CategoryListProps {
   };
 }
 
+const CategoryList: FunctionComponent<CategoryListProps> = ({ selectedCategory, categoryList }) => {
+  return (
+    <CategoryListWrapper>
+      {Object.entries(categoryList).map(([name, count]) => (
+        <CategoryItem to={`/?category=${name}`} active={name === selectedCategory} key={name}>
+          #{name}({count})
+        </CategoryItem>
+      ))}
+    </CategoryListWrapper>
+  );
+};
+
 const CategoryListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 768px;
   margin: 100px auto 0;
+
+  ${media.mobile} {
+    width: 100%;
+    margin-top: 50px;
+    padding: 0 20px;
+  }
 `;
 
 const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
@@ -38,18 +57,10 @@ const CategoryItem = styled(({ active, to, ...props }: GatsbyLinkProps) => (
   &:last-of-type {
     margin-right: 0;
   }
-`;
 
-const CategoryList: FunctionComponent<CategoryListProps> = ({ selectedCategory, categoryList }) => {
-  return (
-    <CategoryListWrapper>
-      {Object.entries(categoryList).map(([name, count]) => (
-        <CategoryItem to={`/?category=${name}`} active={name === selectedCategory} key={name}>
-          #{name}({count})
-        </CategoryItem>
-      ))}
-    </CategoryListWrapper>
-  );
-};
+  ${media.mobile} {
+    font-size: 15px;
+  }
+`;
 
 export default CategoryList;

@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import styled from "@emotion/styled";
+import media from "../Common/media";
 // import PROFILE_IMAGE_LINK from "../../assets/img_profile.png";
 
 const PROFILE_IMAGE_LINK =
@@ -9,6 +10,11 @@ const ProfileImageWrapper = styled.img`
   height: 120px;
   margin-bottom: 20px;
   border-radius: 50%;
+
+  ${media.mobile} {
+    width: 80px;
+    height: 80px;
+  }
 `;
 const ProfileImage: FunctionComponent = () => {
   return <ProfileImageWrapper src={PROFILE_IMAGE_LINK} alt="Profile Image" />;
